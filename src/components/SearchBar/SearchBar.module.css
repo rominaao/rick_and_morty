@@ -1,0 +1,16 @@
+.input{
+    margin-right: 15px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.button{
+     background-color: brown;
+     color: burlywood;
+     border-radius: 1rem;
+     font-weight: bolder;
+     font-size: 1rem;
+     padding: 10px;
+     margin: 25px 15px 25px 0px;
+     cursor: pointer;
+}
