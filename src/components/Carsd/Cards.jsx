@@ -5,9 +5,10 @@ import styled from 'styled-components';
 export default function Cards({characters}) {
   return (
     <div className={styled.container}>
-      {characters.map(c => 
+      {characters.map((c) => 
           <Card 
             key= {c.id}
+            id={c.id}
             name={c.name}
             status={c.status}
             species={c.species}

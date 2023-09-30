@@ -1,6 +1,8 @@
-import SearchBar from "../SearchBar/SearchBar.jsx"
+import SearchBar from "../SearchBar/SearchBar.jsx";
+import style from './Nav.module.css'
+import {Link} from 'react-router-dom'
 
-export default function Nav({onSearch}){
+export default function Nav({onSearch,logout}){
     return(
         <nav>
           <img
@@ -8,6 +10,12 @@ export default function Nav({onSearch}){
         alt=""
         width="20%"
       />
+            <Link to='/home' className={style.Link}>Home</Link>
+            <Link to='/abuot' className={style.Link}>About</Link>
+            <Link to='/favorite' className={style.Link}>
+              <button>Favorites</button>
+            </Link>
+            <button className={style.Link} onClick={logout}></button>
             <SearchBar onSearch={onSearch}/>
         </nav>
     )
