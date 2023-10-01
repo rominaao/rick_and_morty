@@ -13,7 +13,12 @@ export default function SearchBar(props) {
    return (
       <div>
          <input className={style.input} type='search' onChange={handlechange} value={id}/>
-         <button className={style.button} onClick ={() =>props.onSearch(id)}>Agregar</button> 
+         <button className={style.button} onClick ={() =>props.onSearch(id)}>
+            Agregar
+         </button> 
+         <button className={style.button} onClick={props.random}>
+            Agragar Random
+         </button>
       </div>
    );
 }

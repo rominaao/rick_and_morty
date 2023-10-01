@@ -2,7 +2,7 @@ import SearchBar from "../SearchBar/SearchBar.jsx";
 import style from './Nav.module.css'
 import {Link} from 'react-router-dom'
 
-export default function Nav({onSearch,logout}){
+export default function Nav({onSearch,logout, random}){
     return(
         <nav>
           <img
@@ -10,13 +10,19 @@ export default function Nav({onSearch,logout}){
         alt=""
         width="20%"
       />
-            <Link to='/home' className={style.Link}>Home</Link>
-            <Link to='/abuot' className={style.Link}>About</Link>
-            <Link to='/favorite' className={style.Link}>
-              <button>Favorites</button>
+            <Link to='/home' className={style.Link}>
+                Home
             </Link>
-            <button className={style.Link} onClick={logout}></button>
-            <SearchBar onSearch={onSearch}/>
+            <Link to='/abuot' className={style.Link}>
+              About
+            </Link>
+            <Link to='/favorite' className={style.Link}>
+              Favorites
+            </Link>
+            <button className={style.Link} onClick={logout}>
+             LogOut
+            </button>
+            <SearchBar onSearch={onSearch} random={random}/>
         </nav>
     )
 }
