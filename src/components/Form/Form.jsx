@@ -5,11 +5,11 @@ export default function Form(props){
    
     const [userData, setUserData] = useState({
         email: "",
-        password:""
+        password:"",
     })
     const [errors,setErrors] =useState({
         email: "",
-        password:""
+        password:"",
     })
 
     function handleChange(e) {
@@ -23,7 +23,6 @@ export default function Form(props){
     }
     
   return(
-  <div>
     <form onSubmit={handleSubmit}>
       <label htmlFor="">Email:</label>
       <input
@@ -42,10 +41,9 @@ export default function Form(props){
         onChange={handleChange}
       />
       <p>{errors.password}</p>
-      <button type="submit">
+      <button >
         SUBMIT
       </button>
     </form>
-  </div>
  )
 }

@@ -1,11 +1,17 @@
 import Card from "../Card/Card";
-import styled from 'styled-components';
+import SContainer from "../SContainer/SContainer"
 
 
-export default function Cards({characters}) {
+export default function Cards(props) {
+  const {characters, onClose} =props;
   return (
-    <div className={styled.container}>
-      {characters.map((c) => 
+    <SContainer>
+      {characters.length ===0 ?(
+        <p style={{color: 'rgb(244, 246, 248)', fontSize: "50px"}}>
+          NECESITAS PERSONAJES
+        </p>
+      ):
+      (characters.map((c) => (
           <Card 
             key= {c.id}
             id={c.id}
@@ -14,9 +20,10 @@ export default function Cards({characters}) {
             species={c.species}
             gender={c.gender}
             image={c.image}
-            onClose={() => alert('Eliminar')}
+            onClose={() => props.onClose(c.id)}
         />
+      ))
       )}
-    </div>
+    </SContainer>
   );
 }

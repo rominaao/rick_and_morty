@@ -36,8 +36,8 @@ const styleG = {
 };
 
 export function Card(props, addFav, removeFav, myFavorites) {
-  //style={{display: 'flex', justifyContent:'space-between'}}
-  const [isFav, setIsFav] = useState(false);
+  
+  const [isFav, setIsFav] = useState(props.fav);
 
   const handelFavorite = () => {
     if (isFav) {
@@ -55,25 +55,28 @@ export function Card(props, addFav, removeFav, myFavorites) {
           setIsFav(true);
        }
     });
- }, [myFavorites, props.id]);
+ });
 
   return (
     <DivCard>
-      {isFav ? (
-        <button onClick={handelFavorite}>❤️</button>
+     <div style={{display:'flex'}}>
+       {isFav ? (
+        <Button onClick={handelFavorite}>❤️</Button>
       ) : (
-        <button onClick={handelFavorite}>🤍</button>
+        <Button onClick={handelFavorite}>🤍</Button>
       )}
       <Button onClick={props.onClose}>X</Button>
+      </div>
       <Link
         to={`/detail/${props.id}`}
         style={{ textDecoration: "none", color: "white" }}
       >
         <h2>{props.name}</h2>
       </Link>
-      <h4>{props.status}</h4>
-      <h4 style={styleS}>{props.species}</h4>
-      <h4 style={styleG}>{props.gender}</h4>
+      <h2>{props.status}</h2>
+      <h2 style={styleS}>{props.species}</h2>
+      <h2 style={styleG}>{props.gender}</h2>
+      <h4 style={{color:'rgb(136, 14, 136)', display:'inline-block'}}>{props.id}</h4>
       <img style={{ display: "block" }} src={props.image} alt="" />
     </DivCard>
   );
@@ -94,4 +97,4 @@ export const mapStateToProps = (state) =>{
     myFavorites : state.myFavorites
   }
 }
-export default connect(null, mapDispachToProps)(Card);
+export default connect(mapStateToProps, mapDispachToProps)(Card);
